@@ -4,7 +4,7 @@
 var currentURL = window.location.href;
 
 // Extract the level number from the URL
-var levelMatch = currentURL.match(/Level(\d+)\.html/i)[1];
+var levelMatch = currentURL.match(/level(\d+)\.html/i)[1];
 console.log(levelMatch);
 
 class Game {
@@ -339,9 +339,9 @@ const progressWindow = document.getElementById('ProgressWindow');
 progressWindow.addEventListener("click", function() {
     if (game.totalCookies >= game.goal) {
         if (levelMatch == 3) {
-            window.location.href = "Credits.html";
+            window.location.href = "credits.html";
         } else {
-            window.location.href = "Level" + (parseInt(levelMatch) + 1) + ".html";
+            window.location.href = "level" + (parseInt(levelMatch) + 1) + ".html";
         }
         
     }
