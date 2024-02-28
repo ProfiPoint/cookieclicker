@@ -18,7 +18,7 @@ class Game {
             this.level = 0;
         }
 
-        this.goal = [25000,250000000,420000000000000000000][levelMatch-1];
+        this.goal = [25000,250000000,2500000000000000000000][levelMatch-1];
         this.BuildingList = [];
         this.UpgradeList = [];
 
@@ -77,7 +77,7 @@ class Building {
             game.UpgradeList.push(new Upgrade("Expansion to Europe", "Bakery production +10k %", 3000000000000, 0, 1, [0,100,0], -1, 3, "assets/icon_35_10.png")); //20x woman 
         }
         else if (this.level == 50 && this.name == "Bakery") {
-            game.UpgradeList.push(new Upgrade("Baker Street", "Bakery production +100k %", 2000000000000000, 0, 1, [0,1000,0], -1, 3, "assets/icon_36_10.png")); //20x woman 
+            game.UpgradeList.push(new Upgrade("Baker Street", "Bakery production +100k %", 10000000000000000, 0, 1, [0,1000,0], -1, 3, "assets/icon_36_10.png")); //20x woman 
         }
 
         if (this.level == 5 && this.name == "Factory") {
@@ -96,7 +96,7 @@ class Building {
             game.UpgradeList.push(new Upgrade("Purchase Agrofert into your holding", "Factory production +2k %", 500000000000000, 0, 1, [0,0,20], -1, 3, "assets/icon_35_4.png")); //20x woman 
         }
         else if (this.level == 50 && this.name == "Factory") {
-            game.UpgradeList.push(new Upgrade("Willy Wonka's Cookies Factory", "Factory production +100k %", 2000000000000000000, 0, 1, [0,0,1000], -1, 3, "assets/icon_36_4.png")); //20x woman 
+            game.UpgradeList.push(new Upgrade("Willy Wonka's Cookies Factory", "Factory production +100k %", 8000000000000000000, 0, 1, [0,0,1000], -1, 3, "assets/icon_36_4.png")); //20x woman 
         }
 
 
