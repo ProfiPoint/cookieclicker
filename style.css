@@ -1,0 +1,341 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: steelblue;
+}
+
+
+
+#menuButton {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  top: 5px;
+  background-color: darkslategray;
+  border: 0px;
+  border-radius: 3px;
+}
+
+#menuButton .Line{
+  width: 26px;
+  height: 4px;
+  left: 2px;
+  position: absolute;
+  background: white;
+  border: 0px;
+  border-radius: 2px;
+}
+#menuButton #Line1{
+  top: 5px;
+}
+#menuButton #Line2{
+  top: 13px;
+}
+#menuButton #Line3{
+  top: 21px;
+}
+
+
+
+#cookie {
+    position: relative;
+    top: 30vh;
+    width: 15vw;
+    float: left;
+    margin-left: 3vw;
+}
+#cookie:hover {
+    transform: scale(1.2);
+    transition: transform .5s ease;
+}
+#cookie:active {
+    transform: scale(0.5);
+}
+
+
+
+#Board {
+    position: relative;
+    width: 76vw;
+    height: 95vh;
+    left: 20vw;
+    background-color: azure;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border: 1px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 16px;
+}
+
+#cookieCount {
+    background-color: #d3d3d3;
+    font-size: max(5vh, 15px);
+    width: 70%;
+    height: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 4vh;
+    margin-bottom: 2.5vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border: 1px;
+    border-style: outset;
+    border-color: black;
+    border-radius: 16px;
+}
+
+#UpgradesClicking {
+    position: absolute;
+    width: 25%;
+    height: 20%;
+    left: 65%;
+    top: 20%;
+    background-color: lightblue;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.UpgradeClickingButton {
+    position: relative;
+    left: 0;
+    height: 33.3%;
+    width: 100%;
+    background-color: gray;
+    border: 1px;
+    border-style: inset;
+    border-color: black;
+}
+.UpgradeClickingButton .Image {
+    position: relative;
+    left: 5%;
+    top: 0;
+    aspect-ratio : 1 / 1;
+    height: 100%;
+    background-color: gray;
+}
+.UpgradeClickingButton .Text{
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  right: 0;
+  top:0;
+}
+.UpgradeClickingButton .Price{
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  right: 0;
+  bottom: 5%;
+}
+
+#UpgradesBuildings {
+    position: absolute;
+    width: 25%;
+    height: 42.5%;
+    left: 65%;
+    top: 42.5%;
+    background-color: lightblue;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.UpgradeBuildingButton {
+    position: static;
+    width: 100%;
+    height: 33.3%;
+    background-color: gray;
+    display: grid;
+    grid-template-columns: 25% 75%; 
+    grid-template-rows: 80% 20%;
+    grid-column-gap: 5px;
+    border: 1px;
+    border-style: inset;
+    border-color: black;
+}
+.UpgradeBuildingButton .Image {
+    position: relative;
+    left: 5%;
+    top: 0;
+    aspect-ratio : 1 / 1;
+    width: 100%;
+    background-color: gray;
+}
+.UpgradeBuildingButton .Text{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin:auto;
+}
+.UpgradeBuildingButton .Price{
+  position: static;
+  text-align: center;
+  width: 100%;
+  grid-column:  span 2;
+}
+
+.Buildings {
+    position: absolute;
+    width: 60%;
+    height: 20%;
+    background-color: lightblue;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+}
+#Buildings1{
+  top: 20%;
+}
+#Buildings2{
+  top: 42.5%;
+}
+#Buildings3{
+  top: 65% ;
+}
+
+#ProgressWindow{
+  position: absolute;
+    width: 15vw;
+    height: 10vh;
+    left: 2vw;
+    top: 85vh;
+    background-color: azure;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border: 1px;
+    border-style: inset;
+    border-color: black;
+    border-radius: 16px;
+}
+#ProgressWindow .Text{
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+#ProgressBarBox{
+  position: relative;
+  left: 5%;
+  width: 90%;
+  height: 20%;
+  background-color: black;
+}
+
+#ProgressBar{
+  background-color: lightgreen;
+  width: 0%;
+  height: 100%;
+}
+
+#ButtonNext{
+  position: absolute;
+  width: 15vw;
+  height: 10vh;
+  left: 2vw;
+  top: 85vh;
+  background-color: lightgreen;
+  border: 1px;
+  border-style: outset;
+  border-color: black;
+  border-radius: 16px;
+
+  text-align: center;
+  font-size: 200%;
+}
+
+.image { 
+    position: static;
+    height: 100%;
+}
+
+#fixdiv{
+  position: static;
+  width: 100%;
+  height: 40px;
+}
+
+@media (max-width: 1300px){
+  .Buildings {
+  margin-left: 0;
+  margin-right: 0;
+  width: 70%;
+  }
+  #UpgradesClicking {
+    width: 30%;
+  }
+  #UpgradesBuildings {
+    width: 30%;
+  }
+}
+
+@media (max-width: 750px){
+  #Board {
+    position: relative;
+    top: -15vh;
+    width: 73vw;
+    height: 200vh;
+    margin-top: 0;
+  }
+  .Buildings {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  height: 10%;
+  }
+  #Buildings1{
+    top: 55%;
+  }
+  #Buildings2{
+    top: 70%;
+  }
+  #Buildings3{
+    top: 85% ;
+  }
+  #UpgradesClicking {
+    position: static;
+    width: 90%;
+    height: 20%;
+  }
+  #UpgradesBuildings {
+    position: static;
+    width: 90%;
+    height: 20%;
+  }
+
+  #menuButton {
+    position: sticky;
+  }
+  #cookie {
+    position: sticky;
+  }
+  #ProgressWindow{
+    position: sticky;
+  }
+  #ProgressWindow .Text{
+    position: absolute;
+    height: 30%;
+    width: 100%;
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #ProgressBarBox{
+    position: relative;
+    top: 50%;
+  }
+}
