@@ -338,7 +338,12 @@ const progressWindow = document.getElementById('ProgressWindow');
 
 progressWindow.addEventListener("click", function() {
     if (game.totalCookies >= game.goal) {
-        window.location.href = "Level" + (parseInt(levelMatch) + 1) + ".html";
+        if (levelMatch == 3) {
+            window.location.href = "Credits.html";
+        } else {
+            window.location.href = "Level" + (parseInt(levelMatch) + 1) + ".html";
+        }
+        
     }
 });
 
