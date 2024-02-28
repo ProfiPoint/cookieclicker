@@ -96,9 +96,12 @@ class Building {
             game.UpgradeList.push(new Upgrade("Purchase Agrofert into your holding", "Factory production +2k %", 500000000000000, 0, 1, [0,0,20], -1, 3, "assets/icon_35_4.png")); //20x woman 
         }
         else if (this.level == 50 && this.name == "Factory") {
-            game.UpgradeList.push(new Upgrade("Willy Wonka's Cookies Factory", "Factory production +131k %", 1310000000000000000, 0, 1, [0,0,1310], -1, 3, "assets/icon_36_4.png")); //20x woman 
+            game.UpgradeList.push(new Upgrade("Willy Wonka's Cookies Factory", "Factory production +131k %", 13100000000000000000, 0, 1, [0,0,1310], -1, 3, "assets/icon_36_4.png")); //20x woman 
         }
 
+        if (woman.level == 131 && bakery.level == 131 && factory.level == 131) {
+            game.UpgradeList.push(new Upgrade("Perfect World", "+13.1 % total cookies every second", 131, 0, 0, [0,0,0], 0, 0, "assets/icon_1_26.png")); //20x woman 
+        }
 
     }
 
@@ -122,6 +125,14 @@ class Building {
         } else {
             return false;
         }
+    }
+}
+
+
+async function inf131() {
+    while (true) {
+        game.totalCookies = game.totalCookies * 1.131;
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
 }
 
@@ -155,7 +166,9 @@ class Upgrade {
 
         this.isPurchased = true;
 
-        
+        if (this.name == "Perfect World") {
+            inf131();
+        }
     
         updatePassiveCookies();
         updateBuildingButtonsOutside();
@@ -400,8 +413,8 @@ var ul = [
     //26
     new Upgrade("[Rebirth] Level 1 Bonus", "Prestige Boost (lvl 1)", -10000, 3, 3, [1,1,1], -1, 2, "assets/icon_10_0.png"), //2x everything
     new Upgrade("[Rebirth] Level 2 Bonus", "Prestige Boost (lvl 2)", -100000000, 6, 6, [2,2,2], 26, 3, "assets/icon_10_1.png"), //2x everything
-    
-    
+    //28
+    new Upgrade("Click 1/10 of passive income", "+10 % of passive 🍪/s per click", 666666666666666, 0, 0, [0,0,0], 10, 0, "assets/icon_0_12.png"), //2x everything
     
     
     
@@ -502,5 +515,8 @@ function updateCookieCount(amount) {
 
 function clickCookie() {
     game.totalCookies += game.clickPerCookie;
+    if (ul[28].isPurchased == true) {
+        game.totalCookies += game.passiveCookies / 10;
+    }
     //updateCookieCount(game.totalCookies);
 }
