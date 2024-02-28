@@ -1,4 +1,4 @@
-console.log("Version 1.2.7");
+console.log("Version 1.2.9c");
 
 var currentURL = window.location.href;
 
@@ -435,7 +435,17 @@ updateUpgradeButtonsOutside();
 updateBuildingButtonsOutside();
 
 function formatNumber(number) {
-    if (number < 1000) {
+    if (number < -1000000) {
+        return (number / 1000000).toLocaleString(undefined, {
+            minimumFractionDigits: 3,
+            maximumFractionDigits: 3
+        }) + 'M';
+    } else if (number < -1000) {
+        return (number / 1000).toLocaleString(undefined, {
+            minimumFractionDigits: 3,
+            maximumFractionDigits: 3
+        }) + 'k';    
+    } else if (number < 1000) {
         return number.toLocaleString(undefined, {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0
