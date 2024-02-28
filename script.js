@@ -49,7 +49,7 @@ class Building {
             game.UpgradeList.push(new Upgrade("Another Woman", "Woman production +100 %", 666, 0, 1, [1,0,0], -1, 1, "assets/icon_32_1.png")); //2x woman 
         } 
         else if (this.level == 20 && this.name == "Woman") {
-            game.UpgradeList.push(new Upgrade("Women union", "Woman production +300 %", 2500, 0, 1, [3,0,0], -1, 1, "assets/icon_33_1.png")); //5x woman 
+            game.UpgradeList.push(new Upgrade("Women union", "Woman production +300 %", 2500, 0, 1, [3,0,0], -1, 1, "assets/icon_30_1.png")); //5x woman 
         }
         else if (this.level == 30 && this.name == "Woman") {
             game.UpgradeList.push(new Upgrade("Pink cookie maker", "Woman production +600 %", 100000, 0, 1, [6,0,0], -1, 2, "assets/icon_34_1.png")); //10x woman 
@@ -69,7 +69,7 @@ class Building {
             game.UpgradeList.push(new Upgrade("Better Butter", "Bakery production +100 %", 2000000, 0, 1, [0,1,0], -1, 2, "assets/icon_32_10.png")); //2x woman 
         } 
         else if (this.level == 20 && this.name == "Bakery") {
-            game.UpgradeList.push(new Upgrade("Bakery Ads", "Bakery production +300 %", 10000000, 0, 1, [0,3,0], -1, 2, "assets/icon_33_10.png")); //5x woman 
+            game.UpgradeList.push(new Upgrade("Bakery Ads", "Bakery production +300 %", 10000000, 0, 1, [0,3,0], -1, 2, "assets/icon_30_10.png")); //5x woman 
         }
         else if (this.level == 30 && this.name == "Bakery") {
             game.UpgradeList.push(new Upgrade("More Branches", "Bakery production +10k %", 6000000000, 0, 1, [0,100,0], -1, 3, "assets/icon_34_10.png")); //10x woman 
@@ -88,7 +88,7 @@ class Building {
             game.UpgradeList.push(new Upgrade("More CO2 Emmission", "Factory production +100 %", 2000000000, 0, 1, [0,0,1], -1, 2, "assets/icon_32_4.png")); //2x woman 
         } 
         else if (this.level == 20 && this.name == "Factory") {
-            game.UpgradeList.push(new Upgrade("Child labour", "Factory production +300 %", 10000000000, 0, 1, [0,0,3], -1, 2, "assets/icon_33_4.png")); //5x woman 
+            game.UpgradeList.push(new Upgrade("Child labour", "Factory production +300 %", 10000000000, 0, 1, [0,0,3], -1, 2, "assets/icon_30_4.png")); //5x woman 
         }
         else if (this.level == 30 && this.name == "Factory") {
             game.UpgradeList.push(new Upgrade("No regulations", "Factory production +600 %", 150000000000, 0, 1, [0,0,6], -1, 2, "assets/icon_34_4.png")); //10x woman 
@@ -386,8 +386,8 @@ var ul = [
     new Upgrade("Glowes", "+150 % click power", 100000, 1.5, 0, [0,0,0], 9, 1, "assets/icon_18_12.png"), //+100% mouse clicks
     new Upgrade("Feet are hands now", "3x click power", 15000000, 2, 0, [0,0,0], 10, 2, "assets/icon_19_12.png"), //+100% mouse clicks
     new Upgrade("More daddy!", "4x click power", 20000000, 3, 0, [0,0,0], 11, 2, "assets/icon_20_12.png"), //+200% mouse clicks
-    new Upgrade("Handy hands", "10x click power", 10000000000000, 9, 0, [0,0,0], 12, 3, "assets/icon_21_12.png"), //+200% mouse clicks
-    new Upgrade("Autoclicker's hands", "20x click power", 300000000000000, 19, 0, [0,0,0], 13, 3, "assets/icon_22_12.png"), //+300% mouse clicks
+    new Upgrade("Handy hands", "10x click power", 10000000000000, 9, 0, [0,0,0], 12, 3, "assets/icon_24_12.png"), //+200% mouse clicks
+    new Upgrade("Autoclicker's hands", "20x click power", 300000000000000, 19, 0, [0,0,0], 13, 3, "assets/icon_23_12.png"), //+300% mouse clicks
     //20
     new Upgrade("Speed Potion +25 %", "Produce 🍪 faster +25 %", 25000, 0.50, 0, [0.25,0.25,0.25], 5, 1, "assets/icon_16_6.png"), //+25% to all factories
     new Upgrade("Speed Potion +50 %", "Produce 🍪 faster +50 %", 4000000, 0.50, 0,  [0.5,0.5,0.5], 20, 2, "assets/icon_19_6.png"), //+50% to all factories
