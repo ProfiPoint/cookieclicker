@@ -18,7 +18,7 @@ class Game {
             this.level = 0;
         }
 
-        this.goal = [25000,250000000,2500000000000000000000][levelMatch-1];
+        this.goal = [25000,500000000,10000000000000000000000][levelMatch-1];
         this.BuildingList = [];
         this.UpgradeList = [];
 
@@ -96,7 +96,7 @@ class Building {
             game.UpgradeList.push(new Upgrade("Purchase Agrofert into your holding", "Factory production +2k %", 500000000000000, 0, 1, [0,0,20], -1, 3, "assets/icon_35_4.png")); //20x woman 
         }
         else if (this.level == 50 && this.name == "Factory") {
-            game.UpgradeList.push(new Upgrade("Willy Wonka's Cookies Factory", "Factory production +100k %", 8000000000000000000, 0, 1, [0,0,1000], -1, 3, "assets/icon_36_4.png")); //20x woman 
+            game.UpgradeList.push(new Upgrade("Willy Wonka's Cookies Factory", "Factory production +131k %", 1310000000000000000, 0, 1, [0,0,1310], -1, 3, "assets/icon_36_4.png")); //20x woman 
         }
 
 
@@ -309,18 +309,21 @@ async function passiveIncome() {
     const progressBar = document.getElementById('ProgressBar');
     const progressText = document.getElementById('ProgressWindowText');
     while (true) {
-        await new Promise(resolve => setTimeout(resolve, 44));
-        game.totalCookies += game.passiveCookies / 20;
-        updateCookieCount(game.totalCookies);
-        if (game.totalCookies >= game.goal && truea == true) {
-            progressBar.style.width = 100 + '%'; 
-            truea = false;
-            
-            progressText.textContent = "CLICK TO PROCEED TO THE NEXT LEVEL!";
-        } else if (truea == true) {
-            progressBar.style.width = 100*game.totalCookies/game.goal + '%';
-            progressText.textContent = formatNumber(Math.ceil(game.totalCookies)) + " / " + formatNumber(game.goal);
+        for (var i = 0; i < 40; i++){
+            await new Promise(resolve => setTimeout(resolve, 44));
+            game.totalCookies += game.passiveCookies / 20;
+            updateCookieCount(game.totalCookies);
+            if (game.totalCookies >= game.goal && truea == true) {
+                progressBar.style.width = 100 + '%'; 
+                truea = false;
+                
+                progressText.textContent = "CLICK TO PROCEED TO THE NEXT LEVEL!";
+            } else if (truea == true) {
+                progressBar.style.width = 100*game.totalCookies/game.goal + '%';
+                progressText.textContent = formatNumber(Math.ceil(game.totalCookies)) + " / " + formatNumber(game.goal);
+            }
         }
+        document.title = "Cookie Clicker 🍪 " + formatNumber(Math.ceil(game.totalCookies));
     }
 }
 
