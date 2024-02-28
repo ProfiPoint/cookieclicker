@@ -1,6 +1,5 @@
-//bara - proste si s tim nejak porad I guess
-//bakery
-//factory
+console.log("Version 1.2.7");
+
 var currentURL = window.location.href;
 
 // Extract the level number from the URL
