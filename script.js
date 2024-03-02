@@ -376,7 +376,7 @@ building2Div.addEventListener("click", function() {
 });
 
 building3Div.addEventListener("click", function() {
-    BuiůdingSFX();
+    BuildingSFX();
     factory.buy.call(factory, game.totalCookies);
 });
 
