@@ -1,4 +1,4 @@
-console.log("Version 1.2.9c");
+console.log("Version 1.3.1a");
 
 var currentURL = window.location.href;
 
@@ -177,6 +177,7 @@ class Upgrade {
 
     buy(cookies,divName) {
         if (cookies >= this.cost && this.isPurchased == false && game.level >= this.gameLevelUnlock && divName == this.name+"\n"+this.desc) { 
+            UpgradeSFX();
             cookies -= this.cost;
             this.applyUpgrade();
             return true;
@@ -329,7 +330,7 @@ async function passiveIncome() {
             if (game.totalCookies >= game.goal && truea == true) {
                 progressBar.style.width = 100 + '%'; 
                 truea = false;
-                
+                RebirthSFX();
                 progressText.textContent = "CLICK TO PROCEED TO THE NEXT LEVEL!";
             } else if (truea == true) {
                 progressBar.style.width = 100*game.totalCookies/game.goal + '%';
@@ -354,8 +355,10 @@ const progressWindow = document.getElementById('ProgressWindow');
 progressWindow.addEventListener("click", function() {
     if (game.totalCookies >= game.goal) {
         if (levelMatch == 3) {
+            NextSFX();
             window.location.href = "credits.html";
         } else {
+            NextSFX();
             window.location.href = "level" + (parseInt(levelMatch) + 1) + ".html";
         }
         
@@ -363,14 +366,17 @@ progressWindow.addEventListener("click", function() {
 });
 
 building1Div.addEventListener("click", function() {
+    BuildingSFX();
     woman.buy.call(woman, game.totalCookies);
 });
 
 building2Div.addEventListener("click", function() {
+    BuildingSFX();
     bakery.buy.call(bakery, game.totalCookies);
 });
 
 building3Div.addEventListener("click", function() {
+    BuiůdingSFX();
     factory.buy.call(factory, game.totalCookies);
 });
 
@@ -404,7 +410,7 @@ var ul = [
     new Upgrade("Handy hands", "10x click power", 10000000000000, 9, 0, [0,0,0], 12, 3, "assets/icon_24_12.png"), //+200% mouse clicks
     new Upgrade("Autoclicker's hands", "20x click power", 300000000000000, 19, 0, [0,0,0], 13, 3, "assets/icon_23_12.png"), //+300% mouse clicks
     //20
-    new Upgrade("Speed Potion +25 %", "Produce 🍪 faster +25 %", 25000, 0.50, 0, [0.25,0.25,0.25], 5, 1, "assets/icon_16_6.png"), //+25% to all factories
+    new Upgrade("Speed Potion +25 %", "Produce 🍪 faster +25 %", 7500, 0.50, 0, [0.25,0.25,0.25], 5, 1, "assets/icon_16_6.png"), //+25% to all factories
     new Upgrade("Speed Potion +50 %", "Produce 🍪 faster +50 %", 4000000, 0.50, 0,  [0.5,0.5,0.5], 20, 2, "assets/icon_19_6.png"), //+50% to all factories
     new Upgrade("Speed Potion +75 %", "Produce 🍪 faster +75 %", 50000000, 0.50, 0, [0.75,0.75,0.75], 21, 2, "assets/icon_21_6.png"), //+75% to all factories
     new Upgrade("Speed Potion +100 %", "Produce 🍪 faster +100 %", 100000000000, 0.50, 0, [1,1,1], 22, 3, "assets/icon_22_6.png"), //+100% to all factories
@@ -515,7 +521,58 @@ function formatNumber(number) {
 
 
 
+function ClickSFX() {
+    var randomSFXNumber = Math.floor(Math.random() * 7) + 1; // Generate a random number between 1 and 8
+    var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3'; // Concatenate with the file name
 
+    // Create an audio element dynamically
+    var audioElement = new Audio(randomSFXFileName);
+
+    // Play the audio
+    audioElement.play();
+}
+
+function UpgradeSFX(){
+    var randomSFXNumber = Math.floor(Math.random() * 3) + 1; // Generate a random number between 1 and 8
+    var randomSFXFileName = 'sfx/sell' + randomSFXNumber + '.mp3'; // Concatenate with the file name
+
+    // Create an audio element dynamically
+    var audioElement = new Audio(randomSFXFileName);
+
+    // Play the audio
+    audioElement.play();
+}
+
+function BuildingSFX(){
+    var randomSFXNumber = Math.floor(Math.random() * 4) + 1; // Generate a random number between 1 and 8
+    var randomSFXFileName = 'sfx/buy' + randomSFXNumber + '.mp3'; // Concatenate with the file name
+
+    // Create an audio element dynamically
+    var audioElement = new Audio(randomSFXFileName);
+
+    // Play the audio
+    audioElement.play();
+}
+
+function RebirthSFX(){
+    var randomSFXFileName = 'sfx/choir.mp3'; // Concatenate with the file name
+
+    // Create an audio element dynamically
+    var audioElement = new Audio(randomSFXFileName);
+
+    // Play the audio
+    audioElement.play();
+}
+
+function NextSFX(){
+    var randomSFXFileName = 'sfx/thud.mp3'; // Concatenate with the file name
+
+    // Create an audio element dynamically
+    var audioElement = new Audio(randomSFXFileName);
+
+    // Play the audio
+    audioElement.play();
+}
 
 function updateCookieCount(amount) {
     var cookieCountElement = document.getElementById("cookieCount");
@@ -528,5 +585,6 @@ function clickCookie() {
     if (ul[28].isPurchased == true) {
         game.totalCookies += game.passiveCookies / 10;
     }
+    ClickSFX()
     //updateCookieCount(game.totalCookies);
 }

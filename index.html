@@ -14,7 +14,7 @@
     }
   </style>
 <body>
-    <img src="assets/cookie.webp" id="cookie">
+  <img src="assets/cookie.webp" id="cookie" onclick="playRandomSFX()" style="cursor: pointer;">
 
     <div id="menuButton" onclick="window.location='index.html';">
       <div class="Line" id="Line1"></div>
@@ -89,7 +89,16 @@
    
  
     <script>
-
-    </script>
+      function playRandomSFX() {
+          var randomSFXNumber = Math.floor(Math.random() * 7) + 1; // Generate a random number between 1 and 8
+          var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3'; // Concatenate with the file name
+  
+          // Create an audio element dynamically
+          var audioElement = new Audio(randomSFXFileName);
+  
+          // Play the audio
+          audioElement.play();
+      }
+  </script>
   </body>
 </html>

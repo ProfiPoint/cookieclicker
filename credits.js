@@ -1,3 +1,5 @@
+console.log("Version 1.3.1a");
+
 const progressBar = document.getElementById('ProgressBar');
 const progressText = document.getElementById('ProgressWindowText');
 const progressWindow = document.getElementById('ProgressWindow');
@@ -64,6 +66,7 @@ var truea = true;
         if (truea == true && currentString >= totalCharacters) {
             progressBar.style.width = 100 + '%'; 
             truea = false;
+            RebirthSFX();
             
             progressText.textContent = "THANKS FOR PLAYING! CLICK TO RETURN TO MENU!";
         } else if (truea == true) {
@@ -75,6 +78,7 @@ var truea = true;
 
 
   function clickCookie() {
+    ClickSFX();
     currentString++;
     showNextString();
     displayProgress();
@@ -83,6 +87,7 @@ var truea = true;
 
   progressWindow.addEventListener("click", function() {
     if (truea == false) {
+        NextSFX();
         window.location.href = "Menu.html";
     }
 });
@@ -134,4 +139,58 @@ var truea = true;
             maximumFractionDigits: 3
         }) + 'Sp';
     }
+}
+
+
+function ClickSFX() {
+  var randomSFXNumber = Math.floor(Math.random() * 7) + 1; // Generate a random number between 1 and 8
+  var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3'; // Concatenate with the file name
+
+  // Create an audio element dynamically
+  var audioElement = new Audio(randomSFXFileName);
+
+  // Play the audio
+  audioElement.play();
+}
+
+function UpgradeSFX(){
+  var randomSFXNumber = Math.floor(Math.random() * 3) + 1; // Generate a random number between 1 and 8
+  var randomSFXFileName = 'sfx/sell' + randomSFXNumber + '.mp3'; // Concatenate with the file name
+
+  // Create an audio element dynamically
+  var audioElement = new Audio(randomSFXFileName);
+
+  // Play the audio
+  audioElement.play();
+}
+
+function BuildingSFX(){
+  var randomSFXNumber = Math.floor(Math.random() * 4) + 1; // Generate a random number between 1 and 8
+  var randomSFXFileName = 'sfx/buy' + randomSFXNumber + '.mp3'; // Concatenate with the file name
+
+  // Create an audio element dynamically
+  var audioElement = new Audio(randomSFXFileName);
+
+  // Play the audio
+  audioElement.play();
+}
+
+function RebirthSFX(){
+  var randomSFXFileName = 'sfx/choir.mp3'; // Concatenate with the file name
+
+  // Create an audio element dynamically
+  var audioElement = new Audio(randomSFXFileName);
+
+  // Play the audio
+  audioElement.play();
+}
+
+function NextSFX(){
+  var randomSFXFileName = 'sfx/thud.mp3'; // Concatenate with the file name
+
+  // Create an audio element dynamically
+  var audioElement = new Audio(randomSFXFileName);
+
+  // Play the audio
+  audioElement.play();
 }
