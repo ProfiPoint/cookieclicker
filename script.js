@@ -417,8 +417,8 @@ var ul = [
     new Upgrade("Speed Potion +150 %", "Produce 🍪 faster +150 %", 40000000000000, 0.50, 0, [1.5,1.5,1.5], 23, 3, "assets/icon_23_6.png"), //+150% to all factories
     new Upgrade("Speed Potion +200 %", "Produce 🍪 faster +200 %", 200000000000000, 0.50, 0, [2,2,2], 24, 3, "assets/icon_24_6.png"), //+200% to all factories
     //26
-    new Upgrade("[Rebirth] Level 1 Bonus", "Prestige Boost (lvl 1)", -10000, 3, 3, [1,1,1], -1, 2, "assets/icon_10_0.png"), //2x everything
-    new Upgrade("[Rebirth] Level 2 Bonus", "Prestige Boost (lvl 2)", -100000000, 6, 6, [2,2,2], 26, 3, "assets/icon_10_1.png"), //2x everything
+    new Upgrade("[Rebirth] Level 1 Bonus", "Prestige Boost (lvl 1)", -5000, 3, 3, [1,1,1], -1, 2, "assets/icon_10_0.png"), //2x everything
+    new Upgrade("[Rebirth] Level 2 Bonus", "Prestige Boost (lvl 2)", -50000000, 6, 6, [2,2,2], 26, 3, "assets/icon_10_1.png"), //2x everything
     //28
     new Upgrade("Click 1/10 of passive income", "+10 % of passive 🍪/s per click", 666666666666666, 0, 0, [0,0,0], 10, 0, "assets/icon_0_12.png"), //2x everything
     
