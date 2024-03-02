@@ -88,7 +88,7 @@ var truea = true;
   progressWindow.addEventListener("click", function() {
     if (truea == false) {
         NextSFX();
-        window.location.href = "Menu.html";
+        window.location.href = "index.html";
     }
 });
 
