@@ -412,7 +412,7 @@ var ul = [//[Upgrade] name, cost, clickMultiplier, clickPoints, multiplierPerBui
 game.BuildingList = bl;
 game.UpgradeList = ul;
 
-/Init basic game logic
+//Init basic game logic
 passiveIncome();
 updateUpgradeButtonsOutside();
 updateBuildingButtonsOutside();
