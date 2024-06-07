@@ -118,54 +118,48 @@ function formatNumber(number) {
 }
 
 function ClickSFX() {
-  var randomSFXNumber = Math.floor(Math.random() * 7) + 1; // Generate a random number between 1 and 8
-  var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3'; // Concatenate with the file name
-
-  // Create an audio element dynamically
-  var audioElement = new Audio(randomSFXFileName);
-
-  // Play the audio
-  audioElement.play();
+    var randomSFXNumber = Math.floor(Math.random() * 7) + 1; 
+    var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3';
+    var audioElement = new Audio(randomSFXFileName);
+    audioElement.play();
 }
 
 function UpgradeSFX(){
-  var randomSFXNumber = Math.floor(Math.random() * 3) + 1; // Generate a random number between 1 and 8
-  var randomSFXFileName = 'sfx/sell' + randomSFXNumber + '.mp3'; // Concatenate with the file name
-
-  // Create an audio element dynamically
-  var audioElement = new Audio(randomSFXFileName);
-
-  // Play the audio
-  audioElement.play();
+    var randomSFXNumber = Math.floor(Math.random() * 3) + 1;
+    var randomSFXFileName = 'sfx/sell' + randomSFXNumber + '.mp3';
+    var audioElement = new Audio(randomSFXFileName);
+    audioElement.play();
 }
 
 function BuildingSFX(){
-  var randomSFXNumber = Math.floor(Math.random() * 4) + 1; // Generate a random number between 1 and 8
-  var randomSFXFileName = 'sfx/buy' + randomSFXNumber + '.mp3'; // Concatenate with the file name
-
-  // Create an audio element dynamically
-  var audioElement = new Audio(randomSFXFileName);
-
-  // Play the audio
-  audioElement.play();
+    var randomSFXNumber = Math.floor(Math.random() * 4) + 1;
+    var randomSFXFileName = 'sfx/buy' + randomSFXNumber + '.mp3';
+    var audioElement = new Audio(randomSFXFileName);
+    audioElement.play();
 }
 
 function RebirthSFX(){
-  var randomSFXFileName = 'sfx/choir.mp3'; // Concatenate with the file name
-
-  // Create an audio element dynamically
-  var audioElement = new Audio(randomSFXFileName);
-
-  // Play the audio
-  audioElement.play();
+    var randomSFXFileName = 'sfx/choir.mp3';
+    var audioElement = new Audio(randomSFXFileName);
+    audioElement.play();
 }
 
 function NextSFX(){
-  var randomSFXFileName = 'sfx/thud.mp3'; // Concatenate with the file name
+    var randomSFXFileName = 'sfx/thud.mp3';
+    var audioElement = new Audio(randomSFXFileName);
+    audioElement.play();
+}
 
-  // Create an audio element dynamically
-  var audioElement = new Audio(randomSFXFileName);
+function updateCookieCount(amount) {
+    var cookieCountElement = document.getElementById("cookieCount");
+    cookieCountElement.innerHTML = formatNumber(Math.floor(amount)) + "🍪";
+}
 
-  // Play the audio
-  audioElement.play();
+function clickCookie() {
+    game.totalCookies += game.clickPerCookie;
+    if (ul[28].isPurchased == true) {
+        game.totalCookies += game.passiveCookies / 10;
+    }
+    ClickSFX()
+    //updateCookieCount(game.totalCookies);
 }
