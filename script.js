@@ -419,10 +419,10 @@ updateBuildingButtonsOutside();
 
 function formatNumber(number) {
     const suffixes = [
-        { value: 1e24, symbol: 'Y' },
-        { value: 1e21, symbol: 'Z' },
-        { value: 1e18, symbol: 'E' },
-        { value: 1e15, symbol: 'P' },
+        { value: 1e24, symbol: 'Sp' },
+        { value: 1e21, symbol: 'Sx' },
+        { value: 1e18, symbol: 'Qn' },
+        { value: 1e15, symbol: 'Qa' },
         { value: 1e12, symbol: 'T' },
         { value: 1e9, symbol: 'B' },
         { value: 1e6, symbol: 'M' },
