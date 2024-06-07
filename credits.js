@@ -92,55 +92,30 @@ var truea = true;
     }
 });
 
-  function formatNumber(number) {
-    if (number < 1000) {
-        return number.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        });
-    } else if (number < 1000000) {
-        return (number / 1000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'k';
-    } else if (number < 1000000000) {
-        return (number / 1000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'M';
-    } else if (number < 1000000000000) {
-        return (number / 1000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'B';
-    } else if (number < 1000000000000000) {
-        return (number / 1000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'T';
-    } else if (number < 1000000000000000000) {
-        return (number / 1000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Qa';
-    } else if (number < 1000000000000000000000) {
-        return (number / 1000000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Qn';
-    } else if (number < 1000000000000000000000000) {
-        return (number / 1000000000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Sx';
-    } else if (number < 1000000000000000000000000000) {
-        return (number / 1000000000000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Sp';
+function formatNumber(number) {
+    const suffixes = [
+        { value: 1e24, symbol: 'Sp' },
+        { value: 1e21, symbol: 'Sx' },
+        { value: 1e18, symbol: 'Qn' },
+        { value: 1e15, symbol: 'Qa' },
+        { value: 1e12, symbol: 'T' },
+        { value: 1e9, symbol: 'B' },
+        { value: 1e6, symbol: 'M' },
+        { value: 1e3, symbol: 'k' }
+    ];
+    for (const { value, symbol } of suffixes) {
+        if (Math.abs(number) >= value) {
+            return (number / value).toLocaleString(undefined, {
+                minimumFractionDigits: 3,
+                maximumFractionDigits: 3
+            }) + symbol;
+        }
     }
+    return number.toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
 }
-
 
 function ClickSFX() {
   var randomSFXNumber = Math.floor(Math.random() * 7) + 1; // Generate a random number between 1 and 8
