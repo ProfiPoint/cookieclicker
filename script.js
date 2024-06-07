@@ -21,7 +21,6 @@ class Game {
         this.goal = [25000,500000000,10000000000000000000000][levelMatch-1];
         this.BuildingList = [];
         this.UpgradeList = [];
-
     }
 }
 
@@ -128,7 +127,6 @@ class Building {
     }
 }
 
-
 async function inf131() {
     while (true) {
         game.totalCookies = game.totalCookies * 1.131;
@@ -146,7 +144,6 @@ class Upgrade {
         this.gameLevelUnlock = glu;
         this.iconImagePos = icon;
         this.multiplierPerBuilding = mpb;
-
         this.isPurchased = false;
         this.prevUpgradeNeeded = prevupgr
     }
@@ -187,7 +184,6 @@ class Upgrade {
     }
 }
 
-
 function updatePassiveCookies(){
     game.passiveCookies = game.BuildingList[0].passiveCookiesPerSecond * game.BuildingList[0].pCPsMultiplier + game.BuildingList[1].passiveCookiesPerSecond * game.BuildingList[1].pCPsMultiplier + game.BuildingList[2].passiveCookiesPerSecond * game.BuildingList[2].pCPsMultiplier;
 }
@@ -213,12 +209,8 @@ function updateUpgradeButtonsOutside(){
                 element.buy.call(element, game.totalCookies);
             });
 
-            //include text that is under element: div class Text:
             upgrade.addEventListener("click", function() {
-                // Get the text of the "Text" element under the upgrade
                 var upgradeText = this.querySelector('.Text').innerText;
-
-                // Include the text in your function call
                 element.buy.call(element, game.totalCookies, upgradeText);
             });
             // set scr image to transparent:
@@ -258,7 +250,6 @@ for (var i = 1; i <= 3; i++) {
     }
 }
 }
-
 
 function createNewBuilding(level,count) {
     if (count <= 80){
@@ -341,10 +332,6 @@ async function passiveIncome() {
     }
 }
 
-
-
-
-
 // [Building] name, firstCost, costMultiplier, pCPsAddition, gameLevelUnlock
 const woman = new Building("Woman", 10, 0.2, 1, 1);
 const bakery = new Building("Bakery", 10000, 0.2, 1000, 2);
@@ -385,8 +372,7 @@ var allBuildingButtons = [];
 
 var bl = [woman,bakery,factory]
 
-var ul = [
-    //[Upgrade] name, cost, clickMultiplier, clickPoints, multiplierPerBuilding[1,2,3], previousUpgradeNumber, gameLevelUnlock, icon
+var ul = [//[Upgrade] name, cost, clickMultiplier, clickPoints, multiplierPerBuilding[1,2,3], previousUpgradeNumber, gameLevelUnlock, icon
     //0
     new Upgrade("Second finger", "Click power +1", 20, 0, 1, [0,0,0], -1, 0, "assets/icon_0_0.png"), //+1 mouse clicks
     new Upgrade("One finger", "Click power +1", 50, 0, 1, [0,0,0], 0, 0, "assets/icon_1_0.png"), //+1 mouse clicks
@@ -421,156 +407,71 @@ var ul = [
     new Upgrade("[Rebirth] Level 2 Bonus", "Prestige Boost (lvl 2)", -50000000, 6, 6, [2,2,2], 26, 3, "assets/icon_10_1.png"), //2x everything
     //28
     new Upgrade("Click 1/10 of passive income", "+10 % of passive 🍪/s per click", 666666666666666, 0, 0, [0,0,0], 10, 0, "assets/icon_0_12.png"), //2x everything
-    
-    
-    
-    
-    
-    
-    
-    //new Upgrade("Super", 0, 0, 0, [0,0,0], 0, 0, "assets/icon__.png"), //
 ]
 
 game.BuildingList = bl;
 game.UpgradeList = ul;
 
-
-// Call the function
+/Init basic game logic
 passiveIncome();
 updateUpgradeButtonsOutside();
 updateBuildingButtonsOutside();
 
 function formatNumber(number) {
-    if (number < -1000000) {
-        return (number / 1000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'M';
-    } else if (number < -1000) {
-        return (number / 1000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'k';    
-    } else if (number < 1000) {
-        return number.toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-        });
-    } else if (number < 1000000) {
-        return (number / 1000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'k';
-    } else if (number < 1000000000) {
-        return (number / 1000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'M';
-    } else if (number < 1000000000000) {
-        return (number / 1000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'B';
-    } else if (number < 1000000000000000) {
-        return (number / 1000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'T';
-    } else if (number < 1000000000000000000) {
-        return (number / 1000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Qa';
-    } else if (number < 1000000000000000000000) {
-        return (number / 1000000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Qn';
-    } else if (number < 1000000000000000000000000) {
-        return (number / 1000000000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Sx';
-    } else if (number < 1000000000000000000000000000) {
-        return (number / 1000000000000000000000000).toLocaleString(undefined, {
-            minimumFractionDigits: 3,
-            maximumFractionDigits: 3
-        }) + 'Sp';
+    const suffixes = [
+        { value: 1e24, symbol: 'Y' },
+        { value: 1e21, symbol: 'Z' },
+        { value: 1e18, symbol: 'E' },
+        { value: 1e15, symbol: 'P' },
+        { value: 1e12, symbol: 'T' },
+        { value: 1e9, symbol: 'B' },
+        { value: 1e6, symbol: 'M' },
+        { value: 1e3, symbol: 'k' }
+    ];
+    for (const { value, symbol } of suffixes) {
+        if (Math.abs(number) >= value) {
+            return (number / value).toLocaleString(undefined, {
+                minimumFractionDigits: 3,
+                maximumFractionDigits: 3
+            }) + symbol;
+        }
     }
+    return number.toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function ClickSFX() {
-    var randomSFXNumber = Math.floor(Math.random() * 7) + 1; // Generate a random number between 1 and 8
-    var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3'; // Concatenate with the file name
-
-    // Create an audio element dynamically
+    var randomSFXNumber = Math.floor(Math.random() * 7) + 1; 
+    var randomSFXFileName = 'sfx/clickb' + randomSFXNumber + '.mp3';
     var audioElement = new Audio(randomSFXFileName);
-
-    // Play the audio
     audioElement.play();
 }
 
 function UpgradeSFX(){
-    var randomSFXNumber = Math.floor(Math.random() * 3) + 1; // Generate a random number between 1 and 8
-    var randomSFXFileName = 'sfx/sell' + randomSFXNumber + '.mp3'; // Concatenate with the file name
-
-    // Create an audio element dynamically
+    var randomSFXNumber = Math.floor(Math.random() * 3) + 1;
+    var randomSFXFileName = 'sfx/sell' + randomSFXNumber + '.mp3';
     var audioElement = new Audio(randomSFXFileName);
-
-    // Play the audio
     audioElement.play();
 }
 
 function BuildingSFX(){
-    var randomSFXNumber = Math.floor(Math.random() * 4) + 1; // Generate a random number between 1 and 8
-    var randomSFXFileName = 'sfx/buy' + randomSFXNumber + '.mp3'; // Concatenate with the file name
-
-    // Create an audio element dynamically
+    var randomSFXNumber = Math.floor(Math.random() * 4) + 1;
+    var randomSFXFileName = 'sfx/buy' + randomSFXNumber + '.mp3';
     var audioElement = new Audio(randomSFXFileName);
-
-    // Play the audio
     audioElement.play();
 }
 
 function RebirthSFX(){
-    var randomSFXFileName = 'sfx/choir.mp3'; // Concatenate with the file name
-
-    // Create an audio element dynamically
+    var randomSFXFileName = 'sfx/choir.mp3';
     var audioElement = new Audio(randomSFXFileName);
-
-    // Play the audio
     audioElement.play();
 }
 
 function NextSFX(){
-    var randomSFXFileName = 'sfx/thud.mp3'; // Concatenate with the file name
-
-    // Create an audio element dynamically
+    var randomSFXFileName = 'sfx/thud.mp3';
     var audioElement = new Audio(randomSFXFileName);
-
-    // Play the audio
     audioElement.play();
 }
 
@@ -578,7 +479,6 @@ function updateCookieCount(amount) {
     var cookieCountElement = document.getElementById("cookieCount");
     cookieCountElement.innerHTML = formatNumber(Math.floor(amount)) + "🍪";
 }
-
 
 function clickCookie() {
     game.totalCookies += game.clickPerCookie;
