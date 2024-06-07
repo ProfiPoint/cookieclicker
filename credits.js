@@ -149,17 +149,3 @@ function NextSFX(){
     var audioElement = new Audio(randomSFXFileName);
     audioElement.play();
 }
-
-function updateCookieCount(amount) {
-    var cookieCountElement = document.getElementById("cookieCount");
-    cookieCountElement.innerHTML = formatNumber(Math.floor(amount)) + "🍪";
-}
-
-function clickCookie() {
-    game.totalCookies += game.clickPerCookie;
-    if (ul[28].isPurchased == true) {
-        game.totalCookies += game.passiveCookies / 10;
-    }
-    ClickSFX()
-    //updateCookieCount(game.totalCookies);
-}
